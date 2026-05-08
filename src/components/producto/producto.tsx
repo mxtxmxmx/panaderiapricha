@@ -1,4 +1,4 @@
-import type { Producto as ProductoType } from '../types/Producto';
+import type { Producto as ProductoType } from '../../types/Producto';
 
 interface Props {
   producto: ProductoType;
@@ -7,7 +7,7 @@ interface Props {
 const Producto = ({ producto }: Props) => {
   return (
     <div>
-      {/* Si tienes imágenes en tu base de datos, se mostrarán aquí */}
+      {}
       {producto.imagen && (
         <img 
           src={producto.imagen} 
