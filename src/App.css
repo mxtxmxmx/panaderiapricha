@@ -1,0 +1,214 @@
+/* --- ESTILO MINIMALISTA "PANADERÍA DE PRICHA" --- */
+
+/* 1. Importamos la fuente 'Quicksand' de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #faf9f6; /* Un blanco roto muy elegante */
+  --text-main: #2d3748;
+  --text-light: #718096;
+  --accent-1: #ffbb00; /* Amarillo/naranja cálido */
+  --accent-2: #ff8e8b; /* Rosa coral suave */
+  --card-bg: #ffffff;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. El Navbar / Título (Panadería de Pricha) */
+nav {
+  background-color: transparent; /* Minimalista, sin fondo pesado */
+  padding: 2.5rem 2rem 1rem;
+  text-align: center;
+}
+
+nav h2 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  /* Efecto de texto con colores degradados */
+  background: linear-gradient(45deg, var(--accent-2), var(--accent-1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ocultamos el h1 viejo del App.tsx para dejar solo el del Navbar */
+header h1 {
+  display: none; 
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* 3. Controles (Buscador y Categorías) */
+.controles {
+  background: transparent;
+  padding: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 450px;
+  padding: 16px 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 40px; /* Bordes totalmente redondos */
+  font-size: 1.1rem;
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.03); /* Sombra súper suave */
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 8px 25px rgba(255, 142, 139, 0.15);
+}
+
+/* Botones minimalistas */
+.categorias-botones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.categorias-botones button {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid #e2e8f0;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categorias-botones button:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.categorias-botones button.activo {
+  background: linear-gradient(45deg, var(--accent-2), var(--accent-1));
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 15px rgba(255, 142, 139, 0.25);
+}
+
+/* 4. Estadísticas (Ligeras y limpias) */
+.estadisticas {
+  display: flex;
+  gap: 50px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.estadisticas div {
+  text-align: center;
+}
+
+.estadisticas span:first-child {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.estadisticas span:last-child {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* 5. Grid de Productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* 6. Tarjetas con bordes de colores (El toque mágico) */
+.productos-grid > div {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 30px;
+  
+  /* Truco para el borde con gradiente */
+  border: 3px solid transparent;
+  background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                    linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productos-grid > div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 142, 139, 0.15);
+}
+
+/* Textos dentro de la tarjeta */
+.productos-grid h3 {
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  color: var(--text-main);
+}
+
+.productos-grid p:nth-of-type(1) { /* Descripción */
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 25px;
+}
+
+.productos-grid p:nth-of-type(2) { /* Precio */
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: var(--text-main);
+}
+
+.productos-grid p:nth-of-type(3) { /* Etiqueta de Categoría */
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #f7fafc;
+  color: var(--text-light);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+/* Por si agregas imágenes a la base de datos después */
+.productos-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
