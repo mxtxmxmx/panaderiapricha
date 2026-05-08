@@ -1,3 +1,4 @@
+// Fixed import path for Producto type
 import type { Producto as ProductoType } from '../../types/Producto';
 
 interface Props {
