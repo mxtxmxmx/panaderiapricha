@@ -6,15 +6,12 @@ export const useProductos = () => {
   const [productos, setProductos] = useState<Producto[]>([]);
   const [busqueda, setBusqueda] = useState<string>('');
   
-  // Cambiamos "todas" a "Todas" para mantener el formato de tu SQL
   const [categoria, setCategoria] = useState<string>('Todas');
 
-  // Las categorías exactas basadas en tu archivo SQL
   const categorias = ['Todas', 'Pan', 'Pastel', 'Galletas', 'Bebida'];
 
   const traerProductos = async () => {
     try {
-      // Tu tabla se llama 'panaderia' en la base de datos
       const { data, error } = await supabase.from('panaderia').select('*');
       
       if (error) {
@@ -49,7 +46,6 @@ export const useProductos = () => {
   const sumadeTodos = productos.reduce((suma, p) => suma + p.precio, 0);
   const precioPromedio = totalProductos > 0 ? sumadeTodos / totalProductos : 0;
 
-  // Asegurarnos de retornar TODO lo que App.tsx necesita para sus .map()
   return {
     buscarProducto,
     filtrarPorCategoria,

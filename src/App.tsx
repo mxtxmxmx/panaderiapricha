@@ -15,12 +15,12 @@ function App() {
     precioPromedio 
   } = useProductos();
 
-  // Lógica para decidir qué array mostrar: si hay texto en el buscador, muestra la búsqueda; si no, muestra el filtro de categorías
+  
   const productosAMostrar = busqueda !== '' ? buscarProducto : filtrarPorCategoria;
 
   return (
     <>
-      {/* Componente de Navegación */}
+      {}
       <Navbar />
 
       <main className="app-container">
@@ -29,10 +29,10 @@ function App() {
         </header>
 
         <section className="controles">
-          {/* Componente de Búsqueda */}
+          {}
           <Busqueda busqueda={busqueda} setBusqueda={setBusqueda} />
 
-          {/* Botones de Categorías */}
+          {}
           <div className="categorias-botones">
             {categorias.map((cat) => (
               <button
@@ -45,11 +45,11 @@ function App() {
             ))}
           </div>
 
-          {/* Componente de Estadísticas */}
+          {}
           <Estadisticas total={totalProductos} promedio={precioPromedio} />
         </section>
 
-        {/* Grid de Productos */}
+        {}
         <section className="productos-grid">
           {productosAMostrar.map((p) => (
             <Producto key={p.id} producto={p} />
